@@ -1,0 +1,178 @@
+body {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background: #f0f0f0;
+}
+
+h1 {
+  margin-bottom: 10px;
+  color: rgb(165, 42, 130);
+}
+p{
+   color: rgb(165, 42, 130); 
+}
+.game {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.card {
+  width: 100px;
+  height: 100px;
+  perspective: 900px;
+  cursor: pointer;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  border-radius: 15px;
+}
+
+.card.change .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+}
+
+.card-front {
+  background: rgb(121, 0, 115);
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.card-back img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+button{
+    width: 150px;
+    height: 50px;
+    margin-top: 30px;
+    background-color: palevioletred;
+    border-radius: 20px;
+    color: black;
+    font-size: large;
+    border-color: palevioletred;
+}   
+
+/* ---------- Mobile (small phones) ---------- */
+@media (max-width: 480px) {
+
+  h1 {
+    font-size: 22px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .game {
+    grid-template-columns: repeat(3, 80px);
+    gap: 10px;
+  }
+
+  .card {
+    width: 80px;
+    height: 80px;
+  }
+
+  .card-back img {
+    width: 55px;
+    height: 55px;
+  }
+
+  button {
+    width: 120px;
+    height: 40px;
+    font-size: medium;
+  }
+}
+
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+  .game {
+    grid-template-columns: repeat(4, 90px);
+    gap: 12px;
+  }
+
+  .card {
+    width: 90px;
+    height: 90px;
+  }
+
+  .card-back img {
+    width: 65px;
+    height: 65px;
+  }
+
+  button {
+    width: 140px;
+    height: 45px;
+  }
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popup-box {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  width: 80%;
+  max-width: 300px;
+}
+
+.popup-box h2 {
+  color: rgb(165, 42, 130);
+  margin-bottom: 10px;
+}
+
+.popup-box p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.popup-box button {
+  background: palevioletred;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 15px;
+  font-size: 16px;
+  cursor: pointer;
+}
